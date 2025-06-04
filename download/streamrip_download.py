@@ -64,7 +64,7 @@ class StreamripDownloadHelper:
             self.download_path.mkdir(parents=True, exist_ok=True)
 
             # Prepare streamrip command
-            cmd = ["rip", "url", self.url]
+            cmd = ["rip"]
 
             # Add quality if specified
             if self.quality is not None:
@@ -81,7 +81,10 @@ class StreamripDownloadHelper:
             if not streamrip_config.is_database_enabled():
                 cmd.append("--no-db")
 
-            LOGGER.info(f"Starting streamrip download: {' '.join(cmd)}")
+            # Add subcommand 'url' and the actual URL
+            cmd.extend(["url", self.url])
+
+            LOGGER.info(f"Starting streamrip download: {' '.join(map(str, cmd))}")
 
             # Run streamrip command
             process = await asyncio.create_subprocess_exec(
