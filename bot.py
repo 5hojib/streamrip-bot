@@ -137,21 +137,18 @@ def register_handlers():
     from settings import handle_settings_callback
     
     # Start command
-    @new_task
     async def start_command(_, message):
         from commands.bot_commands import START_TEXT
         from utils.message_utils import send_message
         await send_message(message, START_TEXT)
     
     # Help command
-    @new_task
     async def help_command(_, message):
         from commands.bot_commands import HELP_TEXT
         from utils.message_utils import send_message
         await send_message(message, HELP_TEXT)
     
     # Status command
-    @new_task
     async def status_command(_, message):
         from utils.message_utils import send_message
 
@@ -169,7 +166,6 @@ def register_handlers():
         await send_message(message, status_msg)
 
     # Settings command
-    @new_task
     async def settings_command(_, message):
         from utils.bot_utils import is_authorized, get_user_id
         from utils.message_utils import send_message
@@ -189,7 +185,6 @@ def register_handlers():
         await show_settings_menu(listener)
     
     # Cancel command
-    @new_task
     async def cancel_command(_, message):
         from utils.message_utils import send_message
         from utils.bot_utils import get_user_id
@@ -210,7 +205,6 @@ def register_handlers():
             await send_message(message, "❌ No active downloads to cancel")
     
     # Callback query handler for quality selector and settings
-    @new_task
     async def handle_callback_query(_, callback_query):
         user_id = callback_query.from_user.id
 
@@ -296,9 +290,6 @@ async def set_bot_commands():
 
 if __name__ == "__main__":
     try:
-        if not os.path.exists("config.py"):
-            LOGGER.error("config.py not found. Please copy config_sample.py to config.py and configure it.")
-        
         # Run the bot
         asyncio.run(main())
         
