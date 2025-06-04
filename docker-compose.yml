@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  streamrip-bot:
+    build: .
+    container_name: streamrip-bot
+    restart: unless-stopped
+    volumes:
+      - ./downloads:/app/downloads
+      - ./config.py:/app/config.py:ro
+      - ./streamrip_config.toml:/app/streamrip_config.toml:ro
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - streamrip-network
+    # Uncomment if you need to expose a web interface
+    # ports:
+    #   - "8080:8080"
+
+networks:
+  streamrip-network:
+    driver: bridge
+
+volumes:
+  downloads:
+  logs:

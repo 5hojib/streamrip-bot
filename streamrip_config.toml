@@ -1,0 +1,58 @@
+[session]
+[session.downloads]
+folder = "/usr/src/app/downloads/"
+concurrency = 4
+
+[session.qobuz]
+quality = 3
+email_or_userid = ""
+password_or_token = ""
+use_auth_token = false
+
+[session.tidal]
+quality = 3
+username = ""
+password = ""
+user_id = ""
+country_code = ""
+access_token = ""
+refresh_token = ""
+token_expiry = ""
+
+[session.deezer]
+quality = 2
+arl = ""
+
+[session.soundcloud]
+quality = 1
+
+[session.youtube]
+quality = 0
+
+[session.conversion]
+enabled = false
+codec = "flac"
+
+[session.database]
+downloads_enabled = true
+failed_downloads_enabled = true
+downloads_path = "~/.config/streamrip/streamrip_downloads.db"
+failed_downloads_path = "~/.config/streamrip/streamrip_failed.db"
+
+[session.filepaths]
+track_format = "{artist} - {title}"
+folder_format = "{artist} - {album}"
+
+[session.artwork]
+embed = true
+save_artwork = false
+embed_size = 1200
+saved_max_width = 1200
+
+[session.metadata]
+exclude = []
+set_playlist_to_album = true
+renumber_playlist_tracks = true
+
+[session.misc]
+max_search_results = 20
