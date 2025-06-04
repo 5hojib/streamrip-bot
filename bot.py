@@ -55,7 +55,6 @@ async def main():
             api_hash=Config.TELEGRAM_HASH,
             bot_token=Config.BOT_TOKEN,
             workers=4,
-            parse_mode="html"
         )
         
         # Initialize user client if session string is provided
@@ -66,7 +65,6 @@ async def main():
                 api_hash=Config.TELEGRAM_HASH,
                 session_string=Config.USER_SESSION_STRING,
                 workers=2,
-                parse_mode="html"
             )
         
         # Register handlers
