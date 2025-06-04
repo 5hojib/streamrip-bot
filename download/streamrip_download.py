@@ -75,7 +75,7 @@ class StreamripDownloadHelper:
                 cmd.extend(["--codec", self.codec])
 
             # Add output directory
-            cmd.extend(["--directory", str(self.download_path)])
+            # cmd.extend(["--directory", str(self.download_path)])
 
             # Add no-db flag if database is disabled
             if not streamrip_config.is_database_enabled():
