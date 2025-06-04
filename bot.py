@@ -296,15 +296,8 @@ async def set_bot_commands():
 
 if __name__ == "__main__":
     try:
-        # Check Python version
-        if sys.version_info < (3, 9):
-            LOGGER.error("Python 3.9 or higher is required")
-            sys.exit(1)
-        
-        # Check if config exists
         if not os.path.exists("config.py"):
             LOGGER.error("config.py not found. Please copy config_sample.py to config.py and configure it.")
-            sys.exit(1)
         
         # Run the bot
         asyncio.run(main())
